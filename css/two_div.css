@@ -18,6 +18,11 @@
     background:-webkit-gradient(linear,70% 0%, 20% 0% , from(rgb(122, 209, 231)),to(rgb(153, 143, 209)));
 }
 .div_index{
+    text-indent: 2em;
+    color: blue;
+    cursor:pointer;
+}
+.div_main{
     color: blue;
     cursor:pointer;
 }

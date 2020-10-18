@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>常见错误</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="YXBJ Windows/602263 (zh-CN, DDL); Windows/10.0.0 (Win64); EDAMVersion=V2;"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<h1>常见错误</h1>
+
+<div><span><div>1.变量名错误</div><div>    int char;</div><div>    int system;</div><div>    system(&quot;pause&quot;);</div><div>2.变量还没声明就使用</div><div>    age = 18;</div><div>3.变量的输入和使用顺序不当</div><div>    int age;//int age = 0;</div><div>    cout &lt;&lt; &quot;你今年&quot; &lt;&lt; age &lt;&lt; &quot;岁了&quot; &lt;&lt;endl;</div><div>    cin &gt;&gt;age;//这行应提前</div><div>4.数据输入后,类型不匹配</div><div>    输入l0(小写的L)</div><div>5.输入数据时,前面的数据输入错误,导致后面的数据都不能输入(不隐藏错误)</div><div>    int a,b,c;</div><div>    cin &gt;&gt; a &gt;&gt; b &gt;&gt;c;</div><div>    //1 2 3正确 //1 a 3 会导致b和c都不正确</div><div>6.使用string，导入库后提示未声明</div><div>    c++是库string，c是string.h</div><div>    string是在std空间内，std::string</div><div>7.cin接受用户输入时接收不完整</div><div>    是用户输入了空白字符(包括空格，制表符，回车符)</div><div>8.有两次输入的代码，但是只有一次输入的机会</div><div >    scanf(&quot;%s&quot;,name);//遇到\n结束，但\n还留在缓冲区<br/></div><div >    gets(name);//读一行，遇到回车符结束<br/></div><div style="margin-left: 40px;"><br/></div><div style="margin-left: 40px;"><img src="warn_files/20191205202355.png" type="image/png" data-filename="20191205202355.png" width="240"/><br/></div><div style="margin-left: 40px;"><img src="warn_files/20191205202413.png" type="image/png" data-filename="20191205202413.png" width="287"/></div><div style="margin-left: 40px;"><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">缓冲区还有 </span><u style="background-color: rgb(255, 250, 165); font-weight: bold;-evernote-highlight:true;">是 cu</u><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">(第一个是空格)</span></div><div><br/></div></span>
+</div></body></html>
