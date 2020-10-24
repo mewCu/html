@@ -1,0 +1,19 @@
+<html>
+<head>
+  <title>第一次使用和绑定仓库</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="YXBJ Windows/602263 (zh-CN, DDL); Windows/10.0.0 (Win64); EDAMVersion=V2;"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<h1>第一次使用和绑定仓库</h1>
+
+<div>
+<span><div><ul><li><div><span style="font-size: 14.6667px;">创建ssh秘钥</span></div></li><ul><li><div><span style="font-size: 14.6667px;">打开bash </span> <span style="font-size: 11pt;">输入 ssh-keygen -t rsa -C &quot;你注册github时的邮箱&quot;        回车</span></div></li><li><div><span style="font-size: 11pt;">c盘 用户 下有个 .ssh 文件夹 id_rsa.pub公共秘钥 复制秘钥</span></div></li></ul><li><div>上传秘钥</div></li><ul><li><div><span style="font-size: 11pt;">github用户setting </span> <span style="font-size: 11pt;">打开SSH and GPGkeys  点击new SSH key</span></div></li><li><div><span style="font-size: 14.6667px;">验证是否成功</span> <span style="font-size: 11pt;">ssh -T <a href="mailto:git@github.com">git@github.com</a> </span></div></li></ul><li><div><span style="font-size: 14.6667px;">设置name和email</span></div></li><ul><li><div><span style="font-size: 11pt;">git config --global user.name &quot;你的名字&quot;</span></div></li><li><div><span style="font-size: 11pt;">git config --global user.email &quot;你的邮箱&quot;</span></div></li></ul><li><div><span style="font-size: 14.6667px;">创建远程仓库</span></div></li><ul><li><div><span style="font-size: 14.6667px;">名称和本地仓库最好一样</span></div></li></ul><li><div><span style="font-size: 14.6667px;">创建本地仓库</span></div></li><ul><li><div><span style="font-size: 14.6667px;">git init会生成 .git文件夹</span></div></li></ul><li><div><span style="font-size: 11pt;">连接到远端仓库</span></div></li><ul><li><div><span style="font-size: 11pt;">git remote add origin /*这里填刚刚远端仓库的SSH地址*/</span></div></li></ul><li><div><span style="font-size: 14.6667px;">之后可以执行push和pull操作</span></div></li></ul><div><br/></div></div></span>
+</div></body></html>
