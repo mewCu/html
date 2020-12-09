@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>文件的编码和解码</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="YXBJ Windows/602498 (zh-CN, DDL); Windows/10.0.0 (Win64); EDAMVersion=V2;"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="690"/>
+<h1>文件的编码和解码</h1>
+
+<div>
+<span><div><ul><li><div>str = 'hello world'</div></li><ul><li><div>编码 str.encode(encoding='UTF-8')</div></li><li><div>解码 str.decode(encoding='UTF-8')</div></li></ul><li><div>如果这个文件是GBK编码</div></li><ul><li><div>file = open(file_path,'r',encoding='GBK') //r模式表示只读取,<font style="color: rgb(77, 206, 29);">seek直接的间隔是2bits</font></div></li></ul><li><div>如果要用UTF-8编码写入文件</div></li><ul><li><div>file = open(file_path,'w',encoding='UTF-8') //w模式代表覆盖写入</div></li><li><div>file.write('aaa')</div></li></ul></ul><div><br/></div></div></span>
+</div></body></html>
