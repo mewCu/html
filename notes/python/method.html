@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>函数定义</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="YXBJ Windows/602498 (zh-CN, DDL); Windows/10.0.0 (Win64); EDAMVersion=V2;"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="692"/>
+<h1>函数定义</h1>
+
+<div>
+<span><div><hr/><div>def clac_add(a,b):</div><div><span>    return a+b</span><br/></div><hr/><div><span>def fun1(a,b,c=10): # c的默认值是10,fun1(1,2)返回值是13</span></div><div><span>    return a+b+c</span></div><hr/><div>def fun2(list_src): #把列表中的数分成偶数和奇数2个列表并返回该2个列表</div><div><span>    odd = []</span><br/></div><div><span><span>    even = []</span><br/></span></div><div><span><span>    for i in list_src:</span><br/></span></div><div><span><span>    </span><span>    if i%2 == 0:</span><br/></span></div><div><span><span>    </span><span>    </span><span>    odd.append(i)</span><br/></span></div><div><span><span>    </span><span>    else:</span><br/></span></div><div><span><span>    </span><span>    </span><span>    even.append(i)</span><br/></span></div><div><span>return odd, even</span></div><hr/><div>def fun3(*args): # 可变参数fun3(a1,a2,a3,an)</div><div><span>    pass # args其实是元组</span><br/></div><hr/><div>def fun4(**args): # 形参可变参数fun4(b=1,a=2,f=4)</div><div><span>    pass #args其实是字典</span><br/></div><hr/><div>def fun5(*a, **bb): # 不能写成fun5(**aa, *b),fun5(*a, *b)或fun5(**aa, **bb)</div><div><span>    pass</span><br/></div><hr/><div>def fun6(a,b,*,c,d): # *之后形参必须指定,如fun6(1,2,d=4,c=3)</div><div><span>    pass</span><br/></div><div><span>def fun7(a,b,*,c,d,**ee): # fun7(1,2,d=4,c=3,e=5) 从第5个参数开始会以字典的形式传入ee</span></div><div><span><span>    print(ee) # {'e':5}</span><br/></span></div><div><span><font style="color: rgb(255, 0, 0);">def fun8(a,b,*,*c): # 会报错,*后面不能接元组</font></span></div></div></span>
+</div></body></html>
