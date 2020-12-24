@@ -1,0 +1,1 @@
+loadJS('js/menu_onclick.js');

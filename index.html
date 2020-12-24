@@ -5,8 +5,8 @@
                 <title>cululua的查询手册</title>
                 <link rel="shortcut icon" href="logo.jpg"/>
                 <link rel=stylesheet type="text/css" href="css/main.css"/>
-                <link rel=stylesheet type="text/css" href="css/two_div.css"/>
-                <script type="text/javascript" src="js/select.js"></script>
+                <script type="text/javascript" src="js/loadJS.js"></script>
+                <script type="text/javascript" src="js/main.js"></script>
         </head>
         <body>
                 
@@ -14,66 +14,66 @@
                         <img src="logo.jpg" width="150" height="150" onclick="onLeftClick('../log/notes_log')">
                 </div>
                 <div class="div_body">
-                        <div class="div_left" float="left" width="32%">
-                                <div class="div_main" id="main_python" style="color:blue" onclick="document.all.Python.style.display=(document.all.Python.style.display =='none')?'':'none'" >
+                        <div class="div_left">
+                                <div class="div_main" id="main_python" style="color:blue" onclick="onLeftClick(this,document.all.Python)" >
                                         + Python</div>
                                 <div id="Python" style="display: none;">
-                                        <div id="print" class="div_index" onclick="onLeftClick('python/print')">print打印</div>
-                                        <div id="input" class="div_index" onclick="onLeftClick('python/input')">input提示输入</div>
-                                        <div id="data_conversion" class="div_index" onclick="onLeftClick('python/data_conversion')">数据相互转换</div>
-                                        <div id="math" class="div_index" onclick="onLeftClick('python/math')">数字操作和math</div>
-                                        <div id="list" class="div_index" onclick="onLeftClick('python/list')">list列表操作</div>
-                                        <div id="dict" class="div_index" onclick="onLeftClick('python/dict')">dict字典</div>
-                                        <div id="tuple" class="div_index" onclick="onLeftClick('python/tuple')">tuple元组</div>
-                                        <div id="set" class="div_index" onclick="onLeftClick('python/set')">set集合</div>
-                                        <div id="set_math" class="div_index" onclick="onLeftClick('python/set_math')">集合的数学操作</div>
-                                        <div id="str_inner" class="div_index" onclick="onLeftClick('python/str_inner')">str字符串驻留</div>
-                                        <div id="str_method" class="div_index" onclick="onLeftClick('python/str_method')">str字符串操作</div>
-                                        <div id="str_format" class="div_index" onclick="onLeftClick('python/str_format')">str字符串格式化</div>
-                                        <div id="file_encoding" class="div_index" onclick="onLeftClick('python/file_encoding')">文件的编码和解码</div>
-                                        <div id="method" class="div_index" onclick="onLeftClick('python/method')">函数定义</div>
-                                        <div id="recursion" class="div_index" onclick="onLeftClick('python/recursion')">递归</div>
-                                        <div id="python_path" class="div_index" onclick="onLeftClick('python/python_path')">查看python安装路径</div>
+                                        <div id="print" class="div_index" onclick="onLeftClick(this,'python/print')">print打印</div>
+                                        <div id="input" class="div_index" onclick="onLeftClick(this,'python/input')">input提示输入</div>
+                                        <div id="data_conversion" class="div_index" onclick="onLeftClick(this,'python/data_conversion')">数据相互转换</div>
+                                        <div id="math" class="div_index" onclick="onLeftClick(this,'python/math')">数字操作和math</div>
+                                        <div id="list" class="div_index" onclick="onLeftClick(this,'python/list')">list列表操作</div>
+                                        <div id="dict" class="div_index" onclick="onLeftClick(this,'python/dict')">dict字典</div>
+                                        <div id="tuple" class="div_index" onclick="onLeftClick(this,'python/tuple')">tuple元组</div>
+                                        <div id="set" class="div_index" onclick="onLeftClick(this,'python/set')">set集合</div>
+                                        <div id="set_math" class="div_index" onclick="onLeftClick(this,'python/set_math')">集合的数学操作</div>
+                                        <div id="str_inner" class="div_index" onclick="onLeftClick(this,'python/str_inner')">str字符串驻留</div>
+                                        <div id="str_method" class="div_index" onclick="onLeftClick(this,'python/str_method')">str字符串操作</div>
+                                        <div id="str_format" class="div_index" onclick="onLeftClick(this,'python/str_format')">str字符串格式化</div>
+                                        <div id="file_encoding" class="div_index" onclick="onLeftClick(this,'python/file_encoding')">文件的编码和解码</div>
+                                        <div id="method" class="div_index" onclick="onLeftClick(this,'python/method')">函数定义</div>
+                                        <div id="recursion" class="div_index" onclick="onLeftClick(this,'python/recursion')">递归</div>
+                                        <div id="python_path" class="div_index" onclick="onLeftClick(this,'python/python_path')">查看python安装路径</div>
                                 </div>
-                                <div class="div_main" id="main_C++" style="color:blue" onclick="document.all.cplus.style.display=(document.all.cplus.style.display =='none')?'':'none'" >
+                                <div class="div_main" id="main_C++" style="color:blue" onclick="onLeftClick(this,document.all.cplus)" >
                                         + C++</div>
                                 <div id="cplus" style="display: none;">
-                                        <div id="format" class="div_index" onclick="onLeftClick('cpp/format')">书写格式</div>
-                                        <div id="data_type" class="div_index" onclick="onLeftClick('cpp/data_type')">数据类型</div>
-                                        <div id="float_double" class="div_index" onclick="onLeftClick('cpp/float_double')">精确数据类型</div>
-                                        <div id="cout" class="div_index" onclick="onLeftClick('cpp/cout')">cout</div>
-                                        <div id="cin" class="div_index" onclick="onLeftClick('cpp/cin')">cin</div>
-                                        <div id="warn" class="div_index" onclick="onLeftClick('cpp/warn')">常见错误</div>
-                                        <div id="english" class="div_index" onclick="onLeftClick('cpp/english')">常见英语单词</div>
-                                        <div id="window_h" class="div_index" onclick="onLeftClick('cpp/windows_h')">用Window.h写辅助</div>
-                                        <div id="unsigned" class="div_index" onclick="onLeftClick('cpp/unsigned')">unsigned</div>
-                                        <div id="string" class="div_index" onclick="onLeftClick('cpp/string')">string</div>
+                                        <div id="format" class="div_index" onclick="onLeftClick(this,'cpp/format')">书写格式</div>
+                                        <div id="data_type" class="div_index" onclick="onLeftClick(this,'cpp/data_type')">数据类型</div>
+                                        <div id="float_double" class="div_index" onclick="onLeftClick(this,'cpp/float_double')">精确数据类型</div>
+                                        <div id="cout" class="div_index" onclick="onLeftClick(this,'cpp/cout')">cout</div>
+                                        <div id="cin" class="div_index" onclick="onLeftClick(this,'cpp/cin')">cin</div>
+                                        <div id="warn" class="div_index" onclick="onLeftClick(this,'cpp/warn')">常见错误</div>
+                                        <div id="english" class="div_index" onclick="onLeftClick(this,'cpp/english')">常见英语单词</div>
+                                        <div id="window_h" class="div_index" onclick="onLeftClick(this,'cpp/windows_h')">用Window.h写辅助</div>
+                                        <div id="unsigned" class="div_index" onclick="onLeftClick(this,'cpp/unsigned')">unsigned</div>
+                                        <div id="string" class="div_index" onclick="onLeftClick(this,'cpp/string')">string</div>
                                        
                                 </div>
-                                <div class="div_main" id="main_Git" style="color:blue" onclick="document.all.git.style.display=(document.all.git.style.display =='none')?'':'none'" >
+                                <div class="div_main" id="main_Git" style="color:blue" onclick="onLeftClick(this,document.all.git)" >
                                         + Git</div>
                                 <div id="git" style="display: none;">
-                                        <div id="first_use" class="div_index" onclick="onLeftClick('git/first_use')">第一次使用和绑定仓库</div>
-                                        <div id="push" class="div_index" onclick="onLeftClick('git/push')">push</div>
-                                        <div id="pull" class="div_index" onclick="onLeftClick('git/pull')">pull</div>
-                                        <div id="pull_cover_file" class="div_index" onclick="onLeftClick('git/pull_cover_file')">pull强制覆盖本地文件</div>
+                                        <div id="first_use" class="div_index" onclick="onLeftClick(this,'git/first_use')">第一次使用和绑定仓库</div>
+                                        <div id="push" class="div_index" onclick="onLeftClick(this,'git/push')">push</div>
+                                        <div id="pull" class="div_index" onclick="onLeftClick(this,'git/pull')">pull</div>
+                                        <div id="pull_cover_file" class="div_index" onclick="onLeftClick(this,'git/pull_cover_file')">pull强制覆盖本地文件</div>
                                 </div>
-                                <div class="div_main" id="main_Linux" style="color:blue" onclick="document.all.linux.style.display=(document.all.linux.style.display =='none')?'':'none'" >
+                                <div class="div_main" id="main_Linux" style="color:blue" onclick="onLeftClick(this,document.all.linux)" >
                                         + Linux</div>
                                 <div id="linux" style="display: none;">
-                                        <div id="apt_source" class="div_index" onclick="onLeftClick('linux/apt_source')">apt更换源</div>
-                                        <div id="link_command" class="div_index" onclick="onLeftClick('linux/link_command')">链接命令</div>
-                                        <div id="sed_stream_edit" class="div_index" onclick="onLeftClick('linux/sed_stream_edit')">sed(unix流编辑器)</div>
-                                        <div id="sed_summarizes" class="div_index" onclick="onLeftClick('linux/sed_summarizes')">sed(总结)</div>
+                                        <div id="apt_source" class="div_index" onclick="onLeftClick(this,'linux/apt_source')">apt更换源</div>
+                                        <div id="link_command" class="div_index" onclick="onLeftClick(this,'linux/link_command')">链接命令</div>
+                                        <div id="sed_stream_edit" class="div_index" onclick="onLeftClick(this,'linux/sed_stream_edit')">sed(unix流编辑器)</div>
+                                        <div id="sed_summarizes" class="div_index" onclick="onLeftClick(this,'linux/sed_summarizes')">sed(总结)</div>
                                 </div>
-                                <div class="div_main" id="main_Win10" style="color:blue" onclick="document.all.win10.style.display=(document.all.win10.style.display =='none')?'':'none'" >
+                                <div class="div_main" id="main_Win10" style="color:blue" onclick="onLeftClick(this,document.all.win10)" >
                                         + Win10小技巧</div>
                                 <div id="win10" style="display: none;">
-                                        <div id="win_r_quickRun" class="div_index" onclick="onLeftClick('win10_tips/win_r_quickRun')">win+r快速启动程序</div>
+                                        <div id="win_r_quickRun" class="div_index" onclick="onLeftClick(this,'win10/win_r_quickRun')">win+r快速启动程序</div>
                                 </div>
 
                         </div>
-                        <div class="div_right" float="right" width="68%">
+                        <div class="div_right">
                                 <iframe id="content" frameborder="0" width="100%" height="100%" scrolling="yes" src="log/notes_log.html"></iframe>
                         </div>
                 </div>

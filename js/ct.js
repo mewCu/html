@@ -14,4 +14,4 @@ function onLeftClick(nid) {
         default:
             break;
     }
-};
+}
