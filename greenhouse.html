@@ -4,8 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>greenhouse</title>
+    <link rel="stylesheet" type="text/css" href="css/greenhouse.css">
+    <script type="text/javascript" src="js/cookies.js"></script>
+    <script type="text/javascript" src="js/greenhouse.js"></script>
 </head>
 <body>
-    
+    <div class="login_box">
+        <form action="php/login.php" method="POST">
+            <label for="box_username">username:</label>
+            <input  id="box_username" name="username" type="text" autocomplete="off" onfocus="dis_tips()"/><br>
+            <span id="check_username"> </span><br>
+
+            <label>password:</label>
+            <input name="password" type="password" onfocus="dis_tips()"/><br>
+            <span id="check_password"> </span><br>
+            <input type="submit" value="login">
+        </form>
+    </div>
 </body>
 </html>
