@@ -13,6 +13,7 @@ $retval = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($retval,MYSQLI_ASSOC);
 if($row['username']!=''){
     if($row['password']==$password){
+        setcookie("username",$username,time()+604800,"/");
         echo("欢迎进入后台!");
     }else{
         setcookie("username",$username,time()+604800,"/");
