@@ -1,3 +1,4 @@
+var default_height = 800;
 function onLeftClick(self,path) {
     if(self.className == "div_index"){
         var frame = document.getElementById("content");
@@ -10,10 +11,5 @@ function onLeftClick(self,path) {
         self.style.background = "#0fe";
     }else if(self.className == "div_main"){
         path.style.display=(path.style.display =='none')?'':'none';
-        var defaultHeight = 800;
-        var div_body = document.getElementsByClassName('div_body');
-        var left = document.getElementsByClassName('div_left');
-        var right = document.getElementsByClassName('div_right');
-        
     }
 }

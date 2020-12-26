@@ -24,14 +24,4 @@ if($row['username']!=''){
     setcookie("check_username","User_not_exist!",time()+2,"/");
     echo("<script>location.href='../greenhouse.html'</script>");
 }
-
-// $username = $password ="";
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     if ($username == "627"){
-//         echo("yes");
-//     }else{
-//         setcookie("username",$username,time()+60,"/");
-//         echo("<script>location.href='../greenhouse.html'</script>");
-//     }
-// }
 ?>
