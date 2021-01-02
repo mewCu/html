@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <style>
+        .body{
+            text-align: center;
+        }
+        #game_box{
+            margin: auto;
+            width: 800px;
+            height: 800px;
+            background-color: #7b7f80;
+        }
+        #canvas_main{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+        var back_color = "#808073";
+        var text_color = "#e41607";
+        var rect_color = "#dde6e9";
+        var mask_color = "#0ab4ca";
+        var assist_color = "#7b7f8044";
+        var cm;
+        var c;
+        var box;
+        var press_state;
+        var mouse_x,mouse_y;
+        var datas;
+        var masks;
+        var dlinks_open,dlinks_close;
+        var debug = false;
+        var look_data = false;
+
+        window.onload=function(){
+            cm=document.getElementById("canvas_main");
+            c=cm.getContext("2d");
+            c.canvas.width = document.getElementById("game_box").clientWidth;
+            c.canvas.height = document.getElementById("game_box").clientHeight;
+            box=document.getElementById("game_box");
+            box.onmousedown=mouseDownAction;
+            box.onmousemove=mouseMoveAction;
+            document.onmouseup=mouseUpAction;
+            document.onkeypress = keypress;
+            document.onkeydown = keydown;
+            document.onkeyup = keyup;
+            document.oncontextmenu=function(){ return false; }
+            c.font = "bold 30px sans-serif";
+            c.textAlign = "center";
+            c.textBaseline = "middle";
+            restart();
+            show_main();
+        }
+        function show_main(){
+            clear();
+            show_rects(c,34.75,5);
+            if(debug){
+                c.fillStyle = assist_color;
+                draw_line(c,0,mouse_y,cm.width,mouse_y);
+                draw_line(c,mouse_x,0,mouse_x,cm.height);
+                draw_text(c,"("+parseInt(mouse_x/39.75)+","+parseInt(mouse_y/39.75)+")",400,400)
+            }
+            requestAnimationFrame(show_main);
+        }
+        function show_rects(fc,rw,pad){
+            for(var i = 0;i<masks.length;i++){
+                for(var j = 0;j<masks[0].length;j++){
+                    if(look_data){
+                        fc.fillStyle = rect_color;
+                        draw_rect(fc,(i+1)*pad+i*rw,(j+1)*pad+j*rw,rw,rw);
+                        draw_text(fc,datas[i][j],(i+1)*pad+i*rw+rw/2,(j+1)*pad+j*rw+rw/2);
+                        continue;
+                    }
+                    if(masks[i][j]==0){
+                        fc.fillStyle = mask_color;
+                        draw_rect(fc,(i+1)*pad+i*rw,(j+1)*pad+j*rw,rw,rw);
+                    }else if(masks[i][j]==1){
+                        fc.fillStyle = rect_color;
+                        draw_rect(fc,(i+1)*pad+i*rw,(j+1)*pad+j*rw,rw,rw);
+                        if(datas[i][j]!=0){
+                            draw_text(fc,datas[i][j],(i+1)*pad+i*rw+rw/2,(j+1)*pad+j*rw+rw/2);
+                        }
+                    }else{
+                        fc.fillStyle = mask_color;
+                        draw_rect(fc,(i+1)*pad+i*rw,(j+1)*pad+j*rw,rw,rw);
+                        fc.fillStyle = text_color;
+                        draw_text(fc,masks[i][j],(i+1)*pad+i*rw+rw/2,(j+1)*pad+j*rw+rw/2);
+                    }
+                }
+            }
+        }
+        // #3
+        function restart(){
+            datas = create_array(20,20);
+            masks = create_array(20,20);
+            for(var i=0;i<masks.length;i++){
+                for(var j=0;j<masks[0].length;j++){
+                    masks[i][j] = 0;
+                }
+            }
+            var frandom_i,frandom_j;
+            var ftotal = 0;
+            while(ftotal<40){
+                frandom_i = parseInt(Math.floor(Math.random()*20));
+                frandom_j = parseInt(Math.floor(Math.random()*20));
+                if(datas[frandom_i][frandom_j]!="#"){
+                    datas[frandom_i][frandom_j] = "#";
+                    ftotal+=1;
+                }
+            }
+            var fi,fj;
+            for(var i=0;i<datas.length;i++){
+                for(var j=0;j<datas[0].length;j++){
+                    if(datas[i][j]!="#"){
+                        ftotal = 0;
+                        fi=i-1;
+                        fj=j-1;
+                        if(data_is_mine(datas,fi,fj)){
+                            ftotal+=1;
+                        }
+                        fi=i-1;
+                        fj=j;
+                        if(data_is_mine(datas,fi,fj)){
+                            ftotal+=1;
+                        }
+                        fi=i-1;
+                        fj=j+1;
+                        if(data_is_mine(datas,fi,fj)){
+                            ftotal+=1;
+                        }
+                        fi=i;
+                        fj=j-1;
+                        if(data_is_mine(datas,fi,fj)){
+                            ftotal+=1;
+                        }
+                        fi=i;
+                        fj=j+1;
+                        if(data_is_mine(datas,fi,fj)){
+                            ftotal+=1;
+                        }
+                        fi=i+1;
+                        fj=j-1;
+                        if(data_is_mine(datas,fi,fj)){
+                            ftotal+=1;
+                        }
+                        fi=i+1;
+                        fj=j;
+                        if(data_is_mine(datas,fi,fj)){
+                            ftotal+=1;
+                        }
+                        fi=i+1;
+                        fj=j+1;
+                        if(data_is_mine(datas,fi,fj)){
+                            ftotal+=1;
+                        }
+                        datas[i][j] = ftotal;
+                    }
+                }
+            }
+        }
+        // #2
+        function mouseDownAction(e){
+            press_state = 1;
+            var findex_i=parseInt(e.offsetX/39.75);
+            var findex_j=parseInt(e.offsetY/39.75);
+            if(press_state!=2){
+                if(e.button==0){
+                    if(masks[findex_i][findex_j]==0){
+                        mask_show(masks,findex_i,findex_j);
+                        if(datas[findex_i][findex_j]==0){
+                            // todo
+                            dlinks_start(findex_i,findex_j);
+                        }else if(datas[findex_i][findex_j]=="#"){
+                            var con = confirm("重新开始?");
+                            if(con){
+                                restart();
+                            }
+                        }
+                    }
+                }else if(e.button==2){
+                    if(masks[findex_i][findex_j]==0){
+                        masks[findex_i][findex_j] = "!";
+                    }else if(masks[findex_i][findex_j]=="!"){
+                        masks[findex_i][findex_j]="?";
+                    }else if(masks[findex_i][findex_j]=="?"){
+                        masks[findex_i][findex_j]=0;
+                    }
+                }
+            }
+        }
+        function mouseMoveAction(e){
+            press_state = 2;
+            if(debug){
+                mouse_x=e.offsetX;
+                mouse_y=e.offsetY;
+            }
+        }
+        function mouseUpAction(e){
+            press_state = 0;
+        } 
+        function keydown(e){
+            var e = e || event;
+            var currKey = e.keyCode || e.which || e.charCode;
+            if(currKey==18){
+                look_data = true;
+            }
+            // 屏蔽浏览器接收按键
+            event.preventDefault();
+        }
+        function keypress(e){
+
+        }
+        function keyup(e){
+            var e = e || event;
+            var currKey = e.keyCode || e.which || e.charCode;
+            if(currKey==18){
+                look_data = false;
+            }
+            event.preventDefault();
+        }
+        // #1
+        function dlinks_start(i,j){
+            //todo
+            dlinks_close = new Array();
+            dlinks_open = new Array();
+            links_push(dlinks_open,i,j);
+            link(i,j);
+            var aaaa =5;
+        }
+        function link(i,j){
+            if(!in_links(dlinks_open,i,j)||in_links(dlinks_close,i,j)){
+                return;
+            }
+            if(in_links(dlinks_open,i,j)){
+                links_push(dlinks_close,i,j);
+                masks[i][j]=1;
+                dlinks_open.splice(dlinks_open.indexOf(i*20+j),1);
+            }
+            var fi,fj;
+            fi = i-1;
+            fj = j-1;
+            if(in_datas(datas,fi,fj)&&datas[i][j]==0){
+                links_push(dlinks_open,fi,fj);
+                link(fi,fj);
+            }
+            fi = i;
+            fj = j-1;
+            if(in_datas(datas,fi,fj)&&datas[i][j]==0){
+                links_push(dlinks_open,fi,fj);
+                link(fi,fj);
+            }
+            fi = i+1;
+            fj = j-1;
+            if(in_datas(datas,fi,fj)&&datas[i][j]==0){
+                links_push(dlinks_open,fi,fj);
+                link(fi,fj);
+            }
+            fi = i-1;
+            fj = j;
+            if(in_datas(datas,fi,fj)&&datas[i][j]==0){
+                links_push(dlinks_open,fi,fj);
+                link(fi,fj);
+            }
+            fi = i+1;
+            fj = j;
+            if(in_datas(datas,fi,fj)&&datas[i][j]==0){
+                links_push(dlinks_open,fi,fj);
+                link(fi,fj);
+            }
+            fi = i-1;
+            fj = j+1;
+            if(in_datas(datas,fi,fj)&&datas[i][j]==0){
+                links_push(dlinks_open,fi,fj);
+                link(fi,fj);
+            }
+            fi = i;
+            fj = j+1;
+            if(in_datas(datas,fi,fj)&&datas[i][j]==0){
+                links_push(dlinks_open,fi,fj);
+                link(fi,fj);
+            }
+            fi = i+1;
+            fj = j+1;
+            if(in_datas(datas,fi,fj)&&datas[i][j]==0){
+                links_push(dlinks_open,fi,fj);
+                link(fi,fj);
+            }
+        }
+        function links_get(n){
+            var temp = n/20;
+            return temp,n-temp*20;
+        }
+        function links_push(flinks,i,j){
+            flinks.push(i*20+j);
+        }
+        function in_links(flinks,i,j){
+            if(flinks.includes(i*20+j)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        function in_datas(fdatas,i,j){
+            if(i<0||i>=fdatas.length||j<0||j>=fdatas[0].length){
+                return false;
+            }else{
+                return true;
+            }
+        }
+        function data_is_empty(fdatas,i,j){
+            if(i<0||i>=fdatas.length||j<0||j>=fdatas[0].length){
+                return false;
+            }else if(fdatas[i][j]==0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        function data_is_mine(fdatas,i,j){
+            if(i<0||i>=fdatas.length||j<0||j>=fdatas[0].length){
+                return false;
+            }else if(fdatas[i][j]=="#"){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        function mask_show(fdatas,i,j){
+            if(i<0||i>=fdatas.length||j<0||j>=fdatas[0].length){
+                return;
+            }else if(fdatas[i][j]==0){
+                fdatas[i][j] = 1;
+            }
+        }
+        function draw_rect(fc,x,y,rw,lw){
+            fc.beginPath();
+            fc.fillRect(x,y,rw,lw);
+            fc.closePath();
+        }
+        function draw_line(fc,sx,sy,ex,ey){
+            fc.beginPath();
+            fc.moveTo(sx,sy);
+            fc.lineTo(ex,ey);
+            fc.stroke();
+            fc.closePath();
+        }
+        function draw_text(fc,ft,tx,ty){
+            fc.fillStyle = text_color;
+            fc.fillText(ft,tx,ty);
+        }
+        function clear(){
+            c.fillStyle = back_color;
+            c.beginPath();
+            c.fillRect(0,0,cm.width,cm.height);
+            c.closePath();
+        }
+        function create_array(row,col){
+            var fdatas = new Array(row);
+            for(var i =0;i<fdatas.length;i++){
+                fdatas[i] = new Array(col);
+            }
+            return fdatas;
+        }
+    </script>
+</head>
+<body>
+    <div id="game_box">
+        <canvas id="canvas_main"></canvas>
+    </div>
+</body>
+</html>
