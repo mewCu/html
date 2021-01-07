@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>opencv</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="YXBJ Windows/602562 (zh-CN, DDL); Windows/10.0.0 (Win64); EDAMVersion=V2;"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="700"/>
+<h1>opencv</h1>
+
+<div>
+<span><div><ul><li><div>安装 pip install opencv-python</div></li><li><div>导入openCV-python库</div></li><ul><li><div>import cv2</div></li></ul><li><div>cv2.imread(img_path,flag) 读取图片</div></li><ul><li><div>flag 读取模式</div></li><ul><li><div>cv2.IMREAD_COLOR 读取彩色图片,图片透明性会被忽略,flag的默认参数,1</div></li><li><div>cv2.IMREAD_GRAYSCALE 按灰度模式读取,0</div></li><li><div>cv2.IMREAD_UNCHANGED 读取图形,包括alpha通道,-1</div></li></ul></ul><li><div>cv2.imshow(window_name,img) 显示图片,窗口自适应大小</div></li><ul><li><div>window_name 窗口指定名称</div></li><li><div>img 图像对象</div></li><li><div>可以指定多个窗口</div></li></ul><li><div>waitKey(millseconds) 绑定键盘事件,返回一个数字,阻塞命令</div></li><ul><li><div>millseconds 阻塞时间毫秒数,传入0时会一直阻塞等待</div></li></ul><li><div>destroyAllWindows(window_name)</div></li><ul><li><div>window_name 需要关闭的窗口名称,不传入值时关闭所有窗口</div></li></ul><li><div>imwrite(img_path,img) 保存图片</div></li><ul><li><div>img_path 图片路径</div></li><li><div>img 图像对象</div></li></ul><li><div>图像属性</div></li><ul><li><div>img.shape 返回(rows_pix,cols_pix,3) 宽,长,3通道</div></li><li><div>img.size 返回rows_pix*cols_pix*3</div></li><li><div>img.dtype dtype('uint8')</div></li></ul><li><div>截取区域 区域覆盖</div></li><ul><li><div>roi = img[0:100,100:200] 截取100x100的图像(roi的类型和img的类型都是numpy.ndarray)</div></li><li><div>img[50:150,0:100] = roi 把roi图像覆盖到指定区域,注意也是100x100</div></li></ul><li><div>获取 设置piexl</div></li><ul><li><div>piexl = img[row,col] 返回[b,g,r]</div></li><li><div><span style="font-size: unset; color: unset; font-family: unset;">img[100,100] = [b,g,r] 设置100,100像素点bgr值</span></div></li><li><div>b = img.item(100,100,0) 返回100,100像素点的b值或者img[100,100,0]获取b值</div></li><li><div>img[100,100,0] = b 设置(100,100)处的b值</div></li></ul><li><div>截取三个通道(比较耗时)</div></li><ul><li><div>b,g,r = cv2.spilt(img) 返回的b,g,r都是numpy.ndarry类型[[]]</div></li><li><div>img = cv2.merge((b,g,r)) 合并</div></li></ul><li><div>cv2.copyMakeBorder(img,top,bottom,left,right,borderType,value)添加边界</div></li><ul><li><div>img 图像</div></li><li><div>top,bottom,left,right 边界宽度,单位为像素值</div></li><li><div>borderType</div></li><ul><li><div>cv2.BORDER_CONSTANT 带颜色的边界,需要传入一个[b,g,r]值</div></li></ul></ul><ul><ul><li><div>cv2.BORDER_REFLECT 边缘元素的镜像反射作为边界</div></li><li><div>cv2.BORDER_REFLECT_101/cv2.BORDER_DEFAULT</div></li><li><div>cv2.BORDER_REPLICATE 边缘元素的复制作为边界</div></li><li><div>cv2.BORDER_WARP</div></li><li><div>当borderType为cv2.BORDER_CONSTANT时,vaule值才有效</div></li><ul><li><div>如cv2.copyMakeBorder(img,10,10,10,10,cv2.BORDER_CONSTANT,value=[0,255,0]) #绿色</div></li></ul></ul></ul><li><div>cv2.add(img1,img2,mask_img) 图片相加,两个图片应该有相同的大小和通道</div></li><ul><li><div>img1 图像1</div></li><li><div>img2 图像2</div></li><li><div>mask:None 掩膜,img1和img2相加后和掩膜与运算</div></li><li><div>dtype:-1</div></li></ul><li><div>cv2.addWeighted(img1,alpha,img2,beta,gamma=0,dtype=-1) 两张图片相加,分吧给予不同权重,实现图片融合和透明背景等效果(img1*alpha+img2*beta+gamma)</div></li><ul><li><div>img1 图像1</div></li><li><div>alpha 图像1的权重</div></li><li><div>img2 图像2</div></li><li><div>beta 图像2的权重</div></li><li><div>gamma 常量值</div></li><li><div>dtpype 返回图像的数据类型,默认-1,和img1一样</div></li></ul><li><div>tu</div></li></ul><div><br/></div><div><br/></div></div><div><br/></div></span>
+</div></body></html>

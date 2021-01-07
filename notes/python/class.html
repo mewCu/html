@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>class类的创建</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="YXBJ Windows/602562 (zh-CN, DDL); Windows/10.0.0 (Win64); EDAMVersion=V2;"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="776"/>
+<h1>class类的创建</h1>
+
+<div>
+<span><div>class Dog:</div><div><br/></div><div>    name = 'xiaogougou'</div><div><br/></div><div><span>    def __init__(self,name,color):</span><br/></div><div><span><span>    <span>    self.name=name</span></span><br/></span></div><div><span><span>    </span><span>    self.color=color</span><br/></span></div><div><br/></div><div>    def eat(self,food): # 实例方法 </div><div>        print('%s is eating %s' % (self.name, food))</div><div><br/></div><div><span>    @staticmethod # 静态方法</span><br/></div><div><span><span>    def sleep():</span><br/></span></div><div><span><span>    </span><span>    print('z Z')</span><br/></span></div><div><span><br/></span></div><div><span><span>    @classmethod # 类方法</span><br/></span></div><div><span><span>    def cm(cls):</span><br/></span></div><div><span><span>    </span><span>    print('classmethod')</span><br/></span></div><div><span><br/></span></div><div><span><br/></span></div><div>dog = Dog('xiaohei','wihte')</div><div>dog.eat('bone')</div><div>dog.sleep()</div><div>Dog.sleep() </div><div>Dog.cm() # 类调用类方法,工具类写法</div><div>Dog.eat(dog,'apple') # xiaohei is eating apple</div><div>Dog.eat(Dog,'apple') # xiaogougou is eating apple</div><div style="background-color:rgb(30, 30, 30);color:rgb(212, 212, 212);font-family:Consolas, &quot;Courier New&quot;, monospace;font-size:14px;line-height:19px;white-space:pre;"><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(dog.color) # wihte</span></div><div style="background-color:rgb(30, 30, 30);color:rgb(212, 212, 212);font-family:Consolas, &quot;Courier New&quot;, monospace;font-size:14px;line-height:19px;white-space:pre;"><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(Dog.color) # 报错</span></div><div><br/></div></span>
+</div></body></html>
